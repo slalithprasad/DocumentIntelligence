@@ -37,16 +37,16 @@ namespace DI.FunctionApp.Functions
                     return new BadRequestObjectResult(apiResponse);
                 }
 
-                DocumentRequest? documentRequest = JsonSerializer.Deserialize<DocumentRequest>(requestBody);
+                ExtractRequest? request = JsonSerializer.Deserialize<ExtractRequest>(requestBody);
 
-                if (documentRequest is null)
+                if (request is null)
                 {
                     apiResponse.IsSuccess = false;
                     apiResponse.Error = "Request body must contain base64Content.";
                     return new BadRequestObjectResult(apiResponse);
                 }
 
-                InlineValidator<DocumentRequest> validator = new InlineValidator<DocumentRequest>
+                InlineValidator<ExtractRequest> validator = new InlineValidator<ExtractRequest>
                 {
                     ClassLevelCascadeMode = CascadeMode.Stop
                 };
@@ -55,7 +55,7 @@ namespace DI.FunctionApp.Functions
                     .NotEmpty().WithMessage("Base64Content is required.")
                     .Matches(@"^data:([a-zA-Z0-9]+/[a-zA-Z0-9-.+]+)(;base64)?,.*$").WithMessage("Base64Content must be in data URI format.");
 
-                var validation = await validator!.ValidateAsync(documentRequest!).ConfigureAwait(false);
+                var validation = await validator!.ValidateAsync(request!).ConfigureAwait(false);
 
                 if (!validation.IsValid)
                 {
@@ -64,7 +64,7 @@ namespace DI.FunctionApp.Functions
                     return new BadRequestObjectResult(apiResponse);
                 }
 
-                ExtractionResponse classificationResponse = await _openAIService.ExtractAsync(documentRequest).ConfigureAwait(false);
+                ExtractionResponse classificationResponse = await _openAIService.ExtractAsync(request).ConfigureAwait(false);
 
                 apiResponse.IsSuccess = true;
                 apiResponse.Result = classificationResponse;

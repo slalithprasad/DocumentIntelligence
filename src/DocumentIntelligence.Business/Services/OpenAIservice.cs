@@ -24,7 +24,7 @@ namespace DocumentIntelligence.Business.Services
             client = openAIClient.GetChatClient(model);
         }
 
-        public async Task<ClassificationResponse> ClassifyAsync(DocumentRequest? request)
+        public async Task<ClassificationResponse> ClassifyAsync(ClassifyRequest? request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
@@ -49,13 +49,16 @@ namespace DocumentIntelligence.Business.Services
             return response;
         }
 
-        public async Task<ExtractionResponse> ExtractAsync(DocumentRequest? request)
+        public async Task<ExtractionResponse> ExtractAsync(ExtractRequest? request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
             BinaryData imageBinaryData = BinaryData.FromBytes(Convert.FromBase64String(request.Base64Content!.GetCompatibleBase64String()));
 
-            ChatMessageContentPart systemChatMessageTextContent = ChatMessageContentPart.CreateTextPart(@"You are an AI model designed to recognize document types and extract key information from images of documents. For each document, extract the following details: firstName, lastName, dateOfBirth (in dd-mm-YYYY format), address, documentNumber, fatherName, motherName, gender, nationality (look for fields such as 'Country', 'Nationality', or 'Issued By'), issuer, and issueDate (in dd-mm-YYYY format). Assign the detected values to the respective keys. Recognize the document type and assign it to the 'documentType' key. Use the following identifiers for 'documentType': `Aadhar`, `Pan`, `DriverLicense`, `Voter`. If any field is not detected, leave it as empty string. Output the results in a precise, minified JSON format. Do not use any formatting like Markdown etc and Follow these instructions strictly.");
+            string extractLanguage = request.Language ?? "english";
+            string translationText = extractLanguage.Equals("english") ? "" : $"If any values are identified in 'english', you need to translate them to {extractLanguage} including documentType.";
+
+            ChatMessageContentPart systemChatMessageTextContent = ChatMessageContentPart.CreateTextPart(@$"You are an AI model designed to recognize document types and extract key information from images of documents. For each document, extract the following details: firstName, lastName, dateOfBirth (in dd-mm-YYYY format), address, documentNumber, fatherName, motherName, gender, nationality (look for fields such as 'Country', 'Nationality', or 'Issued By'), issuer, and issueDate (in dd-mm-YYYY format, look for 'issued' followed by date). Assign the detected values to the respective keys. Recognize the document type and assign it to the 'documentType' key. Use the following identifiers for 'documentType': `Aadhar`, `Pan`, `DriverLicense`, `Voter`. Extract all the values for the specified keys in {extractLanguage} language. {translationText}If any field is not detected, leave it as empty string. Output the results in a precise, minified JSON format. Do not use any formatting like Markdown etc and Follow these instructions strictly.");
 
             ChatMessageContentPart userImageContentPart = ChatMessageContentPart.CreateImagePart(imageBinaryData, request.Base64Content!.GetMimeTypeFromBase64());
 

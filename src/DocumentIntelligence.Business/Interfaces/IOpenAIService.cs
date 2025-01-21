@@ -5,8 +5,8 @@ namespace DocumentIntelligence.Business.Interfaces
 {
     public interface IOpenAIService
     {
-        Task<ClassificationResponse> ClassifyAsync(DocumentRequest? request);
+        Task<ClassificationResponse> ClassifyAsync(ClassifyRequest? request);
 
-        Task<ExtractionResponse> ExtractAsync(DocumentRequest? request);
+        Task<ExtractionResponse> ExtractAsync(ExtractRequest? request);
     }
 }
