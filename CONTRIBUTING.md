@@ -8,20 +8,37 @@ Thank you for considering contributing to Document Intelligence! We welcome cont
     ```bash
     git clone https://github.com/lalith-kaara/DocumentIntelligence.git
     ```
-2. **Create a branch**: 
+2. **Restore dependencies**:
+    ```bash
+    dotnet restore
+    ```
+3. **Add local settings**: Create a `local.settings.json` file in the root of the project with the necessary configurations.
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+        "OpenAIKey": "<key>",
+        "OpenAIUri": "<uri>",
+        "OpenAIModel": "<model>"
+      }
+    }
+    ```
+4. **Create a branch**: 
     ```bash
     git checkout -b your-branch-name
     ```
-3. **Make your changes**: Implement your feature or bug fix.
-4. **Commit your changes**: 
+5. **Make your changes**: Implement your feature or bug fix.
+6. **Commit your changes**: 
     ```bash
     git commit -m "Description of your changes"
     ```
-5. **Push to your branch**: 
+7. **Push to your branch**: 
     ```bash
     git push origin your-branch-name
     ```
-6. **Create a pull request**: Go to the original repository and click "New Pull Request".
+8. **Create a pull request**: Go to the original repository and click "New Pull Request".
 
 ## Code of Conduct
 
@@ -66,7 +83,6 @@ If you find a bug or have a feature request, please create an issue in the [issu
 - Follow the existing code style.
 - Write clear and concise commit messages.
 - Include comments and documentation where necessary.
-
 
 Thank you for your contributions!
 

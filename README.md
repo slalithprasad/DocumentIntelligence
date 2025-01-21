@@ -50,24 +50,25 @@ POST /api/extract
 }
 ```
 
+#### Response
 ```json
 {
-    "isSuccess": true,
-    "result": {
-        "documentType": "ఆధార్",
-        "firstName": "జాన్",
-        "lastName": "డో",
-        "dateOfBirth": "01-01-1990",
-        "address": "123 మెయిన్ స్ట్రీట్",
-        "documentNumber": "123456789012",
-        "fatherName": "రిచర్డ్ డో",
-        "motherName": "జేన్ డో",
-        "gender": "పురుషుడు",
-        "nationality": "భారతీయుడు",
-        "issuer": "భారత ప్రభుత్వం",
-        "issueDate": "01-01-2010"
-    },
-    "error": null
+  "isSuccess": true,
+  "result": {
+    "documentType": "ఆధార్",
+    "firstName": "జాన్",
+    "lastName": "డో",
+    "dateOfBirth": "01-01-1990",
+    "address": "123 మెయిన్ స్ట్రీట్",
+    "documentNumber": "123456789012",
+    "fatherName": "రిచర్డ్ డో",
+    "motherName": "జేన్ డో",
+    "gender": "పురుషుడు",
+    "nationality": "భారతీయుడు",
+    "issuer": "భారత ప్రభుత్వం",
+    "issueDate": "01-01-2010"
+  },
+  "error": null
 }
 ```
 
@@ -81,7 +82,6 @@ The `OpenAIService` class provides methods to interact with the OPENAI API for d
 
 - `Task<ClassificationResponse> ClassifyAsync(ClassifyRequest? request)`: Asynchronously classifies the given request and returns a classification response.
 - `Task<ExtractionResponse> ExtractAsync(ExtractRequest? request)`: Asynchronously extracts information from the given request and returns an extraction response.
-
 
 ## Getting Started
 
@@ -102,7 +102,22 @@ To get started with the Document Intelligence project, follow these steps:
     dotnet restore
     ```
 
-4. **Run the application**:
+4. **Add OpenAI configuration**:
+    In the `local.settings.json` file, add the following keys:
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+        "OpenAIKey": "<key>",
+        "OpenAIUri": "<uri>",
+        "OpenAIModel": "<model>"
+      }
+    }
+    ```
+
+5. **Run the application**:
     ```sh
     dotnet run
     ```
