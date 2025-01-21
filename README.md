@@ -126,10 +126,6 @@ To get started with the Document Intelligence project, follow these steps:
 
 We welcome contributions to the Document Intelligence project. Please read our [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For any questions or feedback, please reach out to us at [lalith.s@kaaratech.com](mailto:lalith.s@kaaratech.com).
