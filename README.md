@@ -45,6 +45,36 @@ POST /api/extract
 #### Request Body
 ```json
 {
+  "language": "English",
+  "base64Content": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+}
+```
+
+#### Response
+```json
+{
+  "isSuccess": true,
+  "result": {
+    "documentType": "Aadhar",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "01-01-1990",
+    "address": "S/O RICHARD DOE, STREET: 234, B K GARUDACHAR COMPLEX, FLAT NO. 402, 4th Floor, Near Dmart, Tarnaka, Hyderabad, Telangana - 500017",
+    "documentNumber": "1234 5678 9012",
+    "fatherName": "Richard Doe",
+    "motherName": "",
+    "gender": "Male",
+    "nationality": "India",
+    "issuer": "Unique Identification Authority of India",
+    "issueDate": "26-07-2011"
+  },
+  "error": null
+}
+```
+
+#### Request Body
+```json
+{
   "language": "Telugu",
   "base64Content": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
 }
@@ -59,14 +89,14 @@ POST /api/extract
     "firstName": "జాన్",
     "lastName": "డో",
     "dateOfBirth": "01-01-1990",
-    "address": "123 మెయిన్ స్ట్రీట్",
-    "documentNumber": "123456789012",
+    "address": "చిరునామా: ఎస్/ఒ రిచర్డ్ డో, వీధి: 234, బి కె గరుడచార్ కంప్లెక్స్, ప్లాట్ నం. 402, 4వ అంతస్తు, డెమార్ట్ దగ్గర, తార్నాక, హైదరాబాదు, తెలంగాణ - 500017",
+    "documentNumber": "1234 5678 9012",
     "fatherName": "రిచర్డ్ డో",
     "motherName": "",
     "gender": "పురుషుడు",
-    "nationality": "భారతీయుడు",
-    "issuer": "భారత ప్రభుత్వం",
-    "issueDate": "01-01-2010"
+    "nationality": "భారతదేశం",
+    "issuer": "భారత ప్రభుత్వము",
+    "issueDate": "26-07-2011"
   },
   "error": null
 }
