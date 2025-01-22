@@ -62,7 +62,7 @@ POST /api/extract
     "address": "123 మెయిన్ స్ట్రీట్",
     "documentNumber": "123456789012",
     "fatherName": "రిచర్డ్ డో",
-    "motherName": "జేన్ డో",
+    "motherName": "",
     "gender": "పురుషుడు",
     "nationality": "భారతీయుడు",
     "issuer": "భారత ప్రభుత్వం",
