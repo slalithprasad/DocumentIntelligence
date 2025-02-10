@@ -86,4 +86,4 @@ If you find a bug or have a feature request, please create an issue in the [issu
 
 Thank you for your contributions!
 
-Team Kaara
+Lalith
