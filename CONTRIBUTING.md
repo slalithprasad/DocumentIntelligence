@@ -6,7 +6,7 @@ Thank you for considering contributing to Document Intelligence! We welcome cont
 
 1. **Clone the repository**: 
     ```bash
-    git clone https://github.com/lalith-kaara/DocumentIntelligence.git
+    git clone https://github.com/slalithprasad/DocumentIntelligence.git
     ```
 2. **Restore dependencies**:
     ```bash
