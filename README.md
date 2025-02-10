@@ -155,7 +155,3 @@ To get started with the Document Intelligence project, follow these steps:
 ## Contributing
 
 We welcome contributions to the Document Intelligence project. Please read our [contributing guidelines](CONTRIBUTING.md) for more information.
-
-## Contact
-
-For any questions or feedback, please reach out to us at [lalith.s@kaaratech.com](mailto:lalith.s@kaaratech.com).
