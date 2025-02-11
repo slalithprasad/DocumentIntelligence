@@ -1,4 +1,4 @@
-# Document Intelligence - DI
+# Document Intelligence
 
 ## Overview
 This project, Document Intelligence, aims to develop intelligent solutions for document processing and analysis. By leveraging OpenAI's advanced machine learning models, we automate and enhance the extraction, classification, and interpretation of information from various types of documents. This approach improves efficiency by reducing manual processing time, enhances accuracy through sophisticated AI algorithms, and ensures scalability to handle large volumes of documents across different domains and industries.
