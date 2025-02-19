@@ -151,7 +151,3 @@ To get started with the Document Intelligence project, follow these steps:
     ```sh
     dotnet run
     ```
-
-## Contributing
-
-We welcome contributions to the Document Intelligence project. Please read our [contributing guidelines](CONTRIBUTING.md) for more information.
