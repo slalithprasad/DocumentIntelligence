@@ -16,7 +16,7 @@ Currently, **Document Intelligence** is a library that needs to be added manuall
 
 To use this library, you need to configure it with your OpenAI credentials and integrate it into your project.  
 
-📌 **Samples** can be found in the [**samples directory**](https://https://github.com/slalithprasad/DocumentIntelligence/samples).
+📌 **Samples** can be found in the [**samples directory**](https://github.com/slalithprasad/DocumentIntelligence/tree/main/samples).
 
 ## Future Enhancements
 
